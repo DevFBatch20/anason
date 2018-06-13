@@ -19,22 +19,6 @@ class Header extends Component {
 
     return (
       <div>  
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">{title}</h1>
-
-            <ul className="Menu">
-              {items && items.map((item, key) => {
-                return <li key={key}>
-                  <Link to={item.url}> {item.title} </Link>
-                </li>}
-                )}
-                  {/* Link to funciona igual que el "a" */}
-            </ul>
-
-        </header>
-
-        <div>
         <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand" href="#">
             <img src="img/navbargrafico.jpg" class="d-inline-block align-top" alt=""/>
@@ -93,8 +77,7 @@ class Header extends Component {
             </div>
           </div>
         </nav>
-        </div> 
-      </div>
+      </div> 
     );
   }
 }

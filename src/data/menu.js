@@ -31,4 +31,5 @@ export default [
       title: 'Signout',
       url: '/signout'
     },
+    
   ];
