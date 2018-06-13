@@ -10,7 +10,6 @@
     "react-scripts": "1.1.4",
     "reactstrap": "^6.1.0"
   },
-  
   "scripts": {
     "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",

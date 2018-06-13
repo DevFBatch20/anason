@@ -1,3 +1,91 @@
+//
+import React, {Component} from 'react';
+import Proptypes from 'prop-types';
+import {Link} from 'react-router-dom';
+import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Assets
+//import logo from '.img/logo.png'
+
+class Header extends Component {
+    static propTypes = {
+        title: Proptypes.string.isRequired,
+        items: Proptypes.array.isRequired,
+
+        menu: Proptypes.string.isRequired,
+        textos: Proptypes.array.isRequired
+    }
+    render(){
+      const {title,items}=this.props
+      const {menu,textos}=this.props
+  
+      return (
+      
+         <div>
+  
+         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">            
+           <div className="container">
+             <a className="navbar-brand" href="index.html">La Tiendita..</a>
+             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+               <span className="navbar-toggler-icon"></span>
+             </button>
+             <div className="collapse navbar-collapse" id="navbarResponsive">
+               <ul className="navbar-nav ml-auto">
+                 <form className="form-inline my-2 my-lg-0">
+                   <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                   <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                 </form>
+  
+  
+               {/*}  {textos && textos.map((texto, key) => {
+                   return <li className="nav-item" key={key}>
+                     <Link className="nav-link" to={texto.url}> {texto.menu} </Link>
+                   </li>}
+                  )}*/}
+
+                {items && items.map((item, key) => {
+                 return <li className="nav-item" key={key}>
+                   <Link className="nav-link" to={item.url}> {item.texto} </Link>
+                 </li>}
+                )}
+
+              
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                      Departamentos
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      {items && items.map((item, key) => {
+                        return <DropdownItem className="nav-item" key={key}>
+                                <Link to={item.url}> {item.title} </Link>
+                              </DropdownItem>}
+                      )}
+                    </DropdownMenu>
+                 </UncontrolledDropdown>
+
+               </ul>
+             </div>
+           </div>
+         </nav>
+         <nav className="navbar navbar-light bg-light">
+           <a className="navbar-brand" href="">
+             <img src="../img/navbargrafico.jpg" className="d-inline-block align-top" alt=""/>
+           </a>
+         </nav>
+     </div> 
+  
+  
+          
+      );
+    }
+  }
+  
+
+export default Header;
+
+
+/*
 //este es un componente nuevo que acabo de crear, la regla es que mi archivo se llame igual que mi clase y que a mi clase le de exportar
 
 //Dependencias
@@ -83,3 +171,4 @@ class Header extends Component {
 }
 
 export default Header;
+*/
