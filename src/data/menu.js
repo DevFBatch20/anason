@@ -1,35 +1,93 @@
 export default [
+  {
+    title: 'Electrónicos',
+    url:'../index.html'
+},
+{
+    title: 'Celulares',
+    url:'../index.html'
+},
+{
+    title: 'TV y DVDs',
+    url:'../index.html'
+},
+{
+    title: 'Computación',
+    url:'../index.html'
+},
+{
+    title: 'Videojuegos',
+    url:'../index.html'
+},
+{
+    title: 'Hogar',
+    url:'../index.html'
+},
+{
+    title: 'Moda',
+    url:'../index.html'
+},
+{
+    title: 'Belleza',
+    url:'../index.html'
+},
+{
+    title: 'Salud',
+    url:'../index.html'
+},
+{
+    title: 'Jueguetes',
+    url:'../index.html'
+},    
+{
+    title: 'Bebés',
+    url:'../index.html'
+},   
+{
+    title: 'Deportes',
+    url:'../index.html'
+},    
+{
+    title: 'Videojuegos',
+    url:'../index.html'
+},
     {
-      title: 'home',
-      url: '/'
+      texto: 'Registro',
+      url: '/Registro'
     },
     {
-      title: 'Departamento',
-      url: '/departamento'
-    },
-    {
-      title: 'Producto',
-      url: '/producto'
-    },
-    {
-      title: 'Checkout',
-      url: '/checkout'
-    },
-    {
-      title: 'Pagos',
-      url: '/pagos'
-    },
-    {
-      title: 'Recibo',
-      url: '/recibo'
-    },
-    {
-      title: 'Login',
+      texto: 'Login',
       url: '/login'
     },
     {
-      title: 'Signout',
-      url: '/signout'
+      texto: 'Checkout',
+      url: '/checkout'
     },
-    
+    {
+      texto: 'Confirmacion',
+      url: '/ConfirmacionPedido'
+    },
+    {
+      texto: 'Recibo',
+      url: '/Recibo'
+    },
+
+
+    /*
+    {
+      texto: 'Configuracion',
+      url:'../index.html'
+    },
+    {
+      texto: 'Ingresar',
+      url:'../index.html'
+    },
+    {
+      texto: 'Registrar',
+      url:'../index.html'
+    },
+    {
+      texto: 'Orders',
+      url:'../index.html'
+    },*/
   ];
