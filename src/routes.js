@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Registro from './components/Registro';
 import ConfirmacionPedido from './components/Checkout/ConfirmacionPedido'
 import Recibo from './components/Checkout/Recibo'
+import Perfil from './components/Perfil'
 
 const AppRoutes = () =>
 <App> 
@@ -22,6 +23,7 @@ const AppRoutes = () =>
         <Route path="/ConfirmacionPedido" component={ConfirmacionPedido}/>
         <Route path="/Recibo" component={Recibo}/>
         <Route path="/Registro" component={Registro}/>
+        <Route path="/Perfil" component={Perfil}/>
         <Route component={Page404} /> {/*Este sería mi else*/}
     </Switch>
 </App>

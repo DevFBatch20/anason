@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Login extends Component {
+  
+  login (){
+    var usuario = document.getElementById("signinEmail").value
+    var contraseña = document.getElementById("signinPassword").value
+    
+    axios.post('http://localhost:3000/api/v1/login', {
+    
+        email: usuario,
+        password: contraseña, 
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  send(event){
+    event.preventDefault();
+  }
+
   render() {
     return (
         <div class="container">
@@ -8,8 +31,8 @@ class Login extends Component {
                 <div class="panel panel-primary">
                     <div class="panel-body">
 
-                        <form method="POST" action="#" role="form">
-
+                        <form onSubmit={this.send}>
+                            
                             <div class="form-group">
                                 <h2>Login</h2>
                             </div>
@@ -26,7 +49,7 @@ class Login extends Component {
                             </div>
 
                             <div class="form-group">
-                                <button id="signinSubmit" type="submit" class="btn btn-success btn-block">Sign in</button>
+                                <button id="signinSubmit" type="submit" class="btn btn-success btn-block" onClick= {this.login}>Sign in</button>
                             </div>
 
                             <div class="form-group divider">

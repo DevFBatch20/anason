@@ -10,7 +10,7 @@ class Registro extends Component {
 				<div class="panel-body">
 					<form method="POST" action="#" role="form">
 						
-                        <div class="form-group">
+            <div class="form-group">
 							<h2>Crear una cuenta</h2>
 						</div>
 						<div class="form-group">
