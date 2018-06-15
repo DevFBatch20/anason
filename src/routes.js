@@ -13,6 +13,7 @@ import ConfirmacionPedido from './components/Checkout/ConfirmacionPedido'
 import Recibo from './components/Checkout/Recibo'
 import Perfil from './components/Perfil'
 import Categories from './components/Categories'
+import Producto from './components/Producto'
 
 const AppRoutes = () =>
 <App> 
@@ -23,6 +24,7 @@ const AppRoutes = () =>
         <Route path="/login" component={Login}/>
         <Route path="/ConfirmacionPedido" component={ConfirmacionPedido}/>
         <Route path="/Recibo" component={Recibo}/>
+        <Route path="/Producto" component={Producto}/>
         <Route path="/Registro" component={Registro}/>
         <Route path="/Perfil" component={Perfil}/>
         <Route name="categories" path="/Categories" component={Categories}/>
