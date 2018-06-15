@@ -10,14 +10,10 @@ class Body extends Component {
   }
   
   render() {
-    const {content} =this.props
-
-    console.log(content)
-    
+    const {content} =this.props    
     return (
         <div>
           {content}
-
         </div>
     );
   }
