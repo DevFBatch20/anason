@@ -11,15 +11,15 @@ class Producto extends Component{
     render() {
         return(
  <div className="producto">
-
+                {/* <!-- Page Content --> */}
     <div class="container">
 
-
+      {/* <!-- Page Heading/Breadcrumbs --> */}
       <h1 class="mt-4 mb-3">Motorola XT1725 Moto C Plus 16GB color Negro. 
         <small> Desbloqueado Nacional</small>
       </h1>
 
-
+      {/* <!-- Portfolio Item Row --> */}
       <div class="row">
 
         <div class="col-md-7">
@@ -46,6 +46,9 @@ class Producto extends Component{
         </div>
 
       </div>
+      {/* <!-- /.row --> */}
+
+      {/* <!-- Related Projects Row --> */}
       <h3 class="my-4">Todas las marcas</h3>
 
       <div class="row">
@@ -55,23 +58,33 @@ class Producto extends Component{
             <img class="img-fluid" src={Samsung} alt=""/>
           </a>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
             <img class="img-fluid" src={Cellg} alt=""/>
           </a>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
             <img class="img-fluid" src={Nokia} alt=""/>
           </a>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
             <img class="img-fluid" src={Huawei} alt=""/>
           </a>
         </div>
+
+          
+
+
       </div>
+      {/* <!-- /.row --> */}
+
     </div>
+    {/* <!-- /.container --> */}
  </div>
         );
     }
