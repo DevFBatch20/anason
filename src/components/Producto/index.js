@@ -5,6 +5,7 @@ import Samsung from "../images/samsung.jpeg";
 import Cellg from "../images/cellg.jpeg";
 import Nokia from "../images/nokia.png";
 import Huawei from "../images/huawei.jpeg";
+import { Button } from 'reactstrap';
 
 class Producto extends Component{
     render() {
@@ -21,19 +22,27 @@ class Producto extends Component{
       {/* <!-- Portfolio Item Row --> */}
       <div class="row">
 
-        <div class="col-md-8">
-          <img class="img-fluid" src={Celular} alt="buuu"/>
+        <div class="col-md-7">
+          <img class="img-fluid" src={Celular} width={500} height={300} mode='fit' alt="buuu"/>
         </div>
 
-        <div class="col-md-4">
-          <h3 class="my-3">Disponible a través de estos vendedores.</h3>
-          <ul>
+        <div class="col-md-5">
+          <h3>Moto C Plus</h3>
+          <p>Moto C Plus es accesible y cuenta con las características fundamentales que buscas; por ejemplo, 
+              una batería que dura hasta 1 día con una sola carga, un procesador quad-core, Android 7.0 y velocidad 4G2. Además, 
+              tiene un diseño estilizado con una 
+              pantalla HD vibrante de 5", y una cámara frontal y trasera para selfies y fotos óptimas, incluso con poca luz. Moto C Plus.</p>
+          <ul style={{textAlign: 'left'}}>
             <li>Súper batería de 4000 mAh.con carga rápida</li>
             <li>Selfies increíbles con flash frontal</li>
             <li>Pantalla vibrante HD de 5"</li>
             <li>Android 7.0</li>
             <li>Quad-core 1.3 GHz Cortex-A53</li>
           </ul>
+            <div>
+                <Button  color="primary">Comprar</Button>{''}
+            </div>
+
         </div>
 
       </div>
@@ -67,6 +76,9 @@ class Producto extends Component{
             <img class="img-fluid" src={Huawei} alt=""/>
           </a>
         </div>
+
+          
+
 
       </div>
       {/* <!-- /.row --> */}
