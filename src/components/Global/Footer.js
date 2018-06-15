@@ -14,11 +14,17 @@ class Footer extends Component {
     const {hola = "adios"} = this.props 
 
     return (
-        <div className="Footer">
-          <p> {hola}</p>
+        <div>
+         
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Anason 2018</p>
+      </div>
+    </footer>
         </div>
     );
   }
 }
 
 export default Footer;
+

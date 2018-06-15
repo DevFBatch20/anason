@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
 
+
 class Body extends Component {
   static propTypes = {
     content: Proptypes.object.isRequired,//libreria.tipodeObjeto.EsRequeridoOÑo
@@ -16,6 +17,7 @@ class Body extends Component {
     return (
         <div>
           {content}
+
         </div>
     );
   }
