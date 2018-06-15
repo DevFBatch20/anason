@@ -26,7 +26,7 @@ class Login extends Component {
   login = (event) => {
     event.preventDefault();
     
-    axios.post('http://127.0.0.1:3000/api/v1/login', this.state)
+    axios.post('https://amazonb20.herokuapp.com/api/v1/login', this.state)
       .then(function (response) {
         console.log(response)
         localStorage.setItem("token", response.data.token);
