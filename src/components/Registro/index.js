@@ -1,6 +1,32 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Registro extends Component {
+	
+	registro (){
+		var usuario = document.getElementById("signupEmail").value
+		var nombreusuario =document.getElementById("signupNombre").value
+    var contraseña = document.getElementById("signupContra").value
+    
+    axios.post('http://localhost:3000/api/v1/users', {
+    
+				email: usuario,
+				name: nombreusuario,
+        password: contraseña, 
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  send(event){
+    event.preventDefault();
+  }
+
+		
   render() {
     return (
         
@@ -8,9 +34,9 @@ class Registro extends Component {
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="#" role="form">
+					<form>
 						
-                        <div class="form-group">
+            <div class="form-group">
 							<h2>Crear una cuenta</h2>
 						</div>
 						<div class="form-group">
@@ -30,7 +56,7 @@ class Registro extends Component {
 							<input id="signupContra" type="contra" maxlength="25" class="form-control" placeholder="al menos 6 caracteres" length="40"/>
 						</div>
 						<div class="form-group">
-							<button id="signupSubmit" type="submit" class="btn btn-info btn-block">Crea tu cuenta</button>
+							<button id="signupSubmit" type="submit" class="btn btn-info btn-block" onClick= {this.registro}>Crea tu cuenta</button>
 						</div>
 						<p class="form-group">Al crear tu cuenta estás aceptando nuestros: <a href="#">Términos de uso</a> y nuestro <a href="#">Aviso de privacidad</a>.</p>
 						
