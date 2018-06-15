@@ -8,12 +8,13 @@ class Login extends Component {
     var contraseña = document.getElementById("signinPassword").value
     
     axios.post('http://localhost:3000/api/v1/login', {
-    
         email: usuario,
         password: contraseña, 
       })
       .then(function (response) {
+        var bla = response.data.token;
         console.log(response);
+        console.log(bla);
       })
       .catch(function (error) {
         console.log(error);
