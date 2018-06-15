@@ -1,66 +1,72 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Input } from 'reactstrap';
 
 class Registro extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      name: ''
+    };
+  }
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+        [name]: value
+    });
+  }
 	
-	registro (){
-		var usuario = document.getElementById("signupEmail").value
-		var nombreusuario =document.getElementById("signupNombre").value
-    var contraseña = document.getElementById("signupContra").value
-    
-    axios.post('http://localhost:3000/api/v1/users', {
-    
-				email: usuario,
-				name: nombreusuario,
-        password: contraseña, 
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  send(event){
+	registro = (event) => {
     event.preventDefault();
+    axios.post('http://127.0.0.1:3000/api/v1/users', this.state)
+         .then(function (response) {
+            console.log(response);
+         })
+         .catch(function (error) {
+            console.log(error);
+         });  
   }
-
 		
   render() {
     return (
         
-    <div class="container">
-		<div class="row">
-			<div class="panel panel-primary">
-				<div class="panel-body">
-					<form>
+    <div className="container">
+		<div className="row">
+			<div className="panel panel-primary">
+				<div className="panel-body">
+					<form onSubmit={this.registro}>
 						
-            <div class="form-group">
+            <div className="form-group">
 							<h2>Crear una cuenta</h2>
 						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupNombre">Nombre*</label>
-							<input id="signupNombre" type="text" maxlength="50" class="form-control"/>
+						<div className="form-group">
+							<label className="control-label">Nombre*</label>
+              <Input className="form-control" type="text" name="name" id="name" placeholder="Escribe tu nombre completo porfa" value={this.state.name} onChange={this.handleChange} required />
 						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupEmail">Email*</label>
-							<input id="signupEmail" type="email" maxlength="50" class="form-control"/>
+						<div className="form-group">
+							<label className="control-label">Email*</label>
+              <Input className="form-control" type="email" name="email" id="email" placeholder="Dirección de correo electrónico" value={this.state.email} onChange={this.handleChange} required />
 						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupTelefono">Telefono</label>
-							<input id="signupTelefono" type="telefono" maxlength="50" class="form-control"/>
+						<div className="form-group">
+							<label className="control-label">Telefono</label>
+							<Input id="signupTelefono" type="phone" className="form-control"/>
 						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupContra">Contraseña*</label>
-							<input id="signupContra" type="contra" maxlength="25" class="form-control" placeholder="al menos 6 caracteres" length="40"/>
+						<div className="form-group">
+							<label className="control-label">Contraseña*</label>
+              <Input className="form-control" type="password" name="password" id="password" placeholder="Escribe una contraseña" value={this.state.password} onChange={this.handleChange} required minLength="6" />
 						</div>
-						<div class="form-group">
-							<button id="signupSubmit" type="submit" class="btn btn-info btn-block" onClick= {this.registro}>Crea tu cuenta</button>
+						<div className="form-group">
+							<button id="signupSubmit" type="submit" className="btn btn-info btn-block" onClick= {this.registro}>Crea tu cuenta</button>
 						</div>
-						<p class="form-group">Al crear tu cuenta estás aceptando nuestros: <a href="#">Términos de uso</a> y nuestro <a href="#">Aviso de privacidad</a>.</p>
+						<p className="form-group">Al crear tu cuenta estás aceptando nuestros: <a href="#">Términos de uso</a> y nuestro <a href="#">Aviso de privacidad</a>.</p>
 						
-						<p></p>¿Ya tienes una cuenta?<a href="#"> Sign in</a>
+						<p></p>¿Ya tienes una cuenta?<a href="/login"> Sign in</a>
                        
 					</form>
 				</div>

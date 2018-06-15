@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Input } from 'reactstrap';
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
   
-  login (){
-    var usuario = document.getElementById("signinEmail").value
-    var contraseña = document.getElementById("signinPassword").value
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+        [name]: value
+    });
+  }
+
+
+  login = (event) => {
+    event.preventDefault();
     
-    axios.post('http://localhost:3000/api/v1/login', {
-        email: usuario,
-        password: contraseña, 
-      })
+    axios.post('http://127.0.0.1:3000/api/v1/login', this.state)
       .then(function (response) {
-        var bla = response.data.token;
-        console.log(response);
-        console.log(bla);
+        console.log(response)
+        localStorage.setItem("token", response.data.token);
+
       })
       .catch(function (error) {
         console.log(error);
       });
-  }
-
-  send(event){
-    event.preventDefault();
   }
 
   render() {
@@ -32,7 +44,7 @@ class Login extends Component {
                 <div class="panel panel-primary">
                     <div class="panel-body">
 
-                        <form onSubmit={this.send}>
+                        <form onSubmit={this.login}>
                             
                             <div class="form-group">
                                 <h2>Login</h2>
@@ -40,17 +52,17 @@ class Login extends Component {
 
                             <div class="form-group">
                                 <strong>Email o celular</strong>
-                                <input id="signinEmail" type="email" maxlength="50" class="form-control"/>
+                                <Input className="form-control" type="text" name="email" id="email" placeholder="Escribe tu nombre completo porfa" value={this.state.name} onChange={this.handleChange} required />
                             </div>
 
                             <div class="form-group">
                                 <strong>Contraseña</strong>
                                 <span class="right"><a href="#">Olvidé mi contraseña</a></span>
-                                <input id="signinPassword" type="password" maxlength="25" class="form-control"/>
+                                <Input className="form-control" type="password" name="password" id="password" placeholder="Escribe una contraseña" value={this.state.password} onChange={this.handleChange} required minLength="6" />
                             </div>
 
                             <div class="form-group">
-                                <button id="signinSubmit" type="submit" class="btn btn-success btn-block" onClick= {this.login}>Sign in</button>
+                                <button id="signinSubmit" type="submit" class="btn btn-success btn-block">Sign in</button>
                             </div>
 
                             <div class="form-group divider">
