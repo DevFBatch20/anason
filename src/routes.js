@@ -15,6 +15,7 @@ import Perfil from './components/Perfil'
 import Categories from './components/Categories'
 import Producto from './components/Producto'
 
+
 const AppRoutes = () =>
 <App> 
     <Switch> 
