@@ -17,9 +17,8 @@ import Producto from './components/Producto'
 
 const AppRoutes = () =>
 <App> 
-    {/* aqui abrí app */}
     <Switch> 
-        <Route exact path ="/" component={Home}/> {/*Siempre que sea la ruta integra ira a home*/}
+        <Route exact path ="/" component={Home}/>
         <Route path="/Checkout" component={checkout}/>
         <Route path="/login" component={Login}/>
         <Route path="/ConfirmacionPedido" component={ConfirmacionPedido}/>
@@ -28,7 +27,7 @@ const AppRoutes = () =>
         <Route path="/Registro" component={Registro}/>
         <Route path="/Perfil" component={Perfil}/>
         <Route name="categories" path="/Categories" component={Categories}/>
-        <Route component={Page404} /> {/*Este sería mi else*/}
+        <Route component={Page404} />
     </Switch>
 </App>
 
