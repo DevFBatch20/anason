@@ -12,6 +12,7 @@ import Registro from './components/Registro';
 import ConfirmacionPedido from './components/Checkout/ConfirmacionPedido'
 import Recibo from './components/Checkout/Recibo'
 import Perfil from './components/Perfil'
+import Categories from './components/Categories'
 
 const AppRoutes = () =>
 <App> 
@@ -24,6 +25,7 @@ const AppRoutes = () =>
         <Route path="/Recibo" component={Recibo}/>
         <Route path="/Registro" component={Registro}/>
         <Route path="/Perfil" component={Perfil}/>
+        <Route name="categories" path="/Categories" component={Categories}/>
         <Route component={Page404} /> {/*Este sería mi else*/}
     </Switch>
 </App>
