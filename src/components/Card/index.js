@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
  CardSubtitle, CardBody } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 class Example extends Component {
   static propTypes={
@@ -17,7 +18,7 @@ class Example extends Component {
           <CardTitle>{itemProduct.shortName}</CardTitle>
           <CardSubtitle>Description</CardSubtitle>
           <CardText>{itemProduct.description}</CardText>
-          <Button>Button</Button>
+          <Link to="/producto"> <Button>Ver mas</Button> </Link>
         </CardBody>
       </Card>
    );

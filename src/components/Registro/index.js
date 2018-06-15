@@ -24,7 +24,7 @@ class Registro extends Component {
 	
 	registro = (event) => {
     event.preventDefault();
-    axios.post('http://127.0.0.1:3000/api/v1/users', this.state)
+    axios.post('https://amazonb20.herokuapp.com/api/v1/users', this.state)
          .then(function (response) {
             console.log(response);
          })

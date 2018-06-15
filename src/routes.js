@@ -14,9 +14,6 @@ import Recibo from './components/Checkout/Recibo'
 import Perfil from './components/Perfil'
 import Categories from './components/Categories'
 import Producto from './components/Producto'
-import Producto from './components/Producto';
-
-
 
 const AppRoutes = () =>
 <App> 
