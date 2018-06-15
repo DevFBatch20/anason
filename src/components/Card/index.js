@@ -9,7 +9,7 @@ class Example extends Component {
   }
   render() {
     const {itemProduct} = this.props
-    console.log(itemProduct)
+    
     return (
       <Card>
         <CardImg top width="100%" src={itemProduct.image} alt={itemProduct.shortName} />

@@ -2,7 +2,7 @@
 //Dependencias
 import React, { Component } from 'react';
 import axios from 'axios';
-import { CardDeck, Row, Col } from 'reactstrap';
+import { CardDeck } from 'reactstrap';
 // Components
 import Carousel from '../Carousel'
 import Card from '../Card'
@@ -11,10 +11,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.items;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('https://amazonb20.herokuapp.com/api/v1/topten')
          .then(response => {
           this.setState({
@@ -30,11 +29,9 @@ class Home extends Component {
     return (
         <div>
           <Carousel />
-            <Row>
-              <Col md="3">
-                {items && items.map((item,key) => <Card itemProduct={item}/> )}
-              </Col>
-            </Row>
+            <CardDeck>
+              {items && items.map((item,key) => <Card itemProduct={item}/> )}
+            </CardDeck>
         </div>
     );
   }
