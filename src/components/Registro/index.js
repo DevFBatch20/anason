@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Input } from 'reactstrap';
+// Api
+import api from '../../api';
 
 class Registro extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Registro extends Component {
 	
 	registro = (event) => {
     event.preventDefault();
-    axios.post('https://amazonb20.herokuapp.com/api/v1/users', this.state)
+
+    api.post('/users', this.state)
          .then(function (response) {
             console.log(response);
          })

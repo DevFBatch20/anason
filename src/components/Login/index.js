@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Input } from 'reactstrap';
+import { Input, UncontrolledAlert } from 'reactstrap';
+
+// Componentes
+import Alert from '../Alert'
+
+import api from '../../api';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      flag: 0
     };
   }
   
-
   handleChange = (event) => {
     const target = event.target;
     const value = target.value;
@@ -22,24 +26,36 @@ class Login extends Component {
     });
   }
 
+  miFuncion = (dataFromChild) => {
+    this.setState({ flag: dataFromChild });
+  }
 
   login = (event) => {
     event.preventDefault();
-    
-    axios.post('https://amazonb20.herokuapp.com/api/v1/login', this.state)
-      .then(function (response) {
-        console.log(response)
-        localStorage.setItem("token", response.data.token);
 
+    api.post('/login', this.state)
+      .then(response=> {
+        this.setState({ 
+          color: 'success',
+          flag: 1,
+          message: 'Ey estas dentro :3',
+        })
+        localStorage.setItem("token", response.data.token);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch( error => { 
+        error.response.status === 500 ?  this.setState({ color: 'danger'}) : this.setState({ color: 'warning'})
+        this.setState({ 
+          flag: 1,
+          message: error.response.data.message,
+        })
       });
   }
 
   render() {
     return (
         <div class="container">
+            { this.state.flag != 0 ?  
+              <Alert color={this.state.color} message={this.state.message} funcionDelPadre={this.miFuncion}/> : null }
             <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-body">
